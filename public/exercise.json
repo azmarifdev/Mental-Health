@@ -1,0 +1,591 @@
+[
+    {
+        "id": 1,
+        "deley": 0.1,
+        "title": "Mindful Breathing",
+        "desc": "Pay close attention to your breath, focusing on the sensation of each inhale and exhale. This mindfulness practice can help anchor you in the present moment. Here's a simple guide to mindful breathing",
+        "preoces": [
+            {
+                "step": "Find a Comfortable Position",
+                "desc": "Sit or lie down in a comfortable position. You can also practice mindful breathing while standing or walking, but it's often easier for beginners to start in a seated position."
+            },
+            {
+                "step": "Focus on Your Breath",
+                "desc": "Close your eyes if it helps you concentrate. Begin to focus your attention on your breath. Notice the sensation of the air as you inhale and exhale."
+            },
+            {
+                "step": "Breathe Naturally",
+                "desc": "Allow your breath to occur naturally. There's no need to force or control it. Simply observe the breath as it is."
+            },
+            {
+                "step": "Bring Your Mind Back",
+                "desc": "our mind might wander, and that's normal. When you notice your thoughts drifting, gently bring your attention back to your breath. You can use a mental cue, such as 'inhale' and 'exhale,'to help anchor your focus."
+            },
+            {
+                "step": "Observe Without Judgment",
+                "desc": "As you breathe, observe the sensations without judgment. Notice the rise and fall of your chest or the sensation of the breath passing through your nostrils."
+            },
+            {
+                "step": "Extend Your Focus",
+                "desc": "Once you are comfortable with observing your breath, you can extend your awareness to other sensations in your body, sounds in your environment, or the overall feeling of being present."
+            },
+            {
+                "step": "Practice Regularly:",
+                "desc": "Aim to practice mindful breathing for a few minutes each day. As you become more accustomed to the practice, you can gradually extend the duration."
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "deley": 0.2,
+        "title": "5-5-5 Breathing",
+        "desc": "Inhale slowly for a count of five, hold your breath for five counts, and exhale for five counts. This balanced breathing technique can provide a sense of stability. Here's how you can practice it.",
+        "preoces": [
+            {
+                "step": "Find a Quiet Space",
+                "desc": "Choose a quiet and comfortable space where you can sit or lie down."
+            },
+            {
+                "step": "Get into a Comfortable Position",
+                "desc": "Sit in a relaxed but upright posture or lie down on your back. Close your eyes if it helps you focus."
+            },
+            {
+                "step": "Begin the 5-5-5 Sequence",
+                "desc": "Inhale slowly and deeply through your nose to the count of five. Feel your lungs fill with air. Hold your breath for a count of five. Keep the breath comfortably retained without straining. Exhale slowly and completely through your mouth for a count of five. Focus on releasing tension as you exhale."
+            },
+            {
+                "step": "Repeat the Sequence",
+                "desc": "Continue the 5-5-5 sequence for several rounds. Inhale for five, hold for five, exhale for five."
+            },
+            {
+                "step": "Maintain a Steady Rhythm",
+                "desc": "Try to maintain a steady and controlled rhythm. The goal is to create a calming and balanced effect on your nervous system."
+            },
+            {
+                "step": "Adapt the Counts",
+                "desc": "If the count of five feels too long or too short for you, feel free to adjust it to a duration that feels comfortable and allows you to maintain a smooth and even flow of breath."
+            },
+            {
+                "step": "Focus on the Breath",
+                "desc": "Throughout the practice, keep your attention on the breath. Feel the sensations of the breath as you inhale, hold, and exhale."
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "deley": 0.3,
+        "title": "Square Breathing",
+        "desc": "Inhale for a count of four, hold for four, exhale for four, and pause for four. Visualize each side of the square as you breathe, promoting a sense of control and stability. Here's how to practice square breathing:",
+        "preoces": [
+            {
+                "step": "Find a Comfortable Position",
+                "desc": "Sit in a comfortable chair or on the floor with your back straight. You can also practice square breathing lying down if that is more comfortable for you."
+            },
+            {
+                "step": "Begin the Square Breathing Sequence",
+                "desc": "Inhale slowly and deeply through your nose to a count of four. Feel your lungs filling with air. Hold your breath for a count of four. Keep the breath comfortably retained without straining. Exhale slowly and completely through your mouth for a count of four. Focus on releasing tension as you exhale. Pause and hold your breath for another count of four before beginning the next cycle."
+            },
+            {
+                "step": "Repeat the Sequence",
+                "desc": "Continue the square breathing sequence for several rounds. Inhale for four, hold for four, exhale for four, and pause for four."
+            },
+            {
+                "step": "Maintain a Steady Rhythm",
+                "desc": "Try to maintain a steady and controlled rhythm. The equal counts help create a balanced and calming effect on your nervous system."
+            },
+            {
+                "step": "Adapt the Counts",
+                "desc": "If the count of four feels too long or too short for you, feel free to adjust it to a duration that feels comfortable and allows you to maintain a smooth and even flow of breath."
+            },
+            {
+                "step": "Focus on the Breath",
+                "desc": "Throughout the practice, keep your attention on the breath. Feel the sensations of the breath as you inhale, hold, exhale, and pause."
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "deley": 0.4,
+        "title": "Lion's Breath",
+        "desc": "Inhale deeply through your nose, then exhale forcefully through your mouth while sticking out your tongue. This can release tension and promote a sense of liberation. Here's how you can practice Lion's Breath:",
+        "preoces": [
+            {
+                "step": "Find a Comfortable Seat",
+                "desc": "Sit in a comfortable cross-legged position on the floor or on a chair with your spine straight. You can also practice standing."
+            },
+            {
+                "step": "Place Your Hands",
+                "desc": "Rest your hands on your knees or thighs."
+            },
+            {
+                "step": "Take a Deep Breath",
+                "desc": "Inhale deeply through your nose, filling your lungs with air."
+            },
+            {
+                "step": "Open Your Mouth Wide",
+                "desc": "As you exhale, open your mouth wide and stick out your tongue as far as it will go. You should also open your eyes wide and gaze at the space between your eyebrows."
+            },
+            {
+                "step": "Exhale Forcefully",
+                "desc": "Exhale forcefully through your mouth with a 'ha' sound, like a lion's roar. Let the breath come from the back of your throat."
+            },
+            {
+                "step": "Express Emotion",
+                "desc": "As you exhale, you can also make a sound or imagine releasing any stress, tension, or negative emotions. This can add an expressive and cathartic element to the practice."
+            },
+            {
+                "step": "Repeat Several Times",
+                "desc": "Practice Lion's Breath for several rounds, taking deep inhales through the nose and exhaling with the lion's roar. You can also incorporate it into a brief sequence with other yoga poses."
+            }
+        ]
+    },
+
+    {
+        "id": 9,
+        "deley": 0.5,
+        "title": "Guided Imagery Breathing",
+        "desc": "Inhale while visualizing a peaceful scene, and exhale while imagining releasing any stress or tension. This combines breath awareness with the power of positive visualization. Here's how to practice Guided Imagery Breathing:",
+        "preoces": [
+            {
+                "step": "Find a Quiet Space",
+                "desc": "Choose a quiet and comfortable space where you won't be disturbed. Sit or lie down in a relaxed position."
+            },
+            {
+                "step": "Deep Breaths",
+                "desc": "Begin with a few deep breaths to help relax your body and initiate a state of calmness. Inhale slowly through your nose, and exhale completely through your mouth."
+            },
+            {
+                "step": "Choose an Imagery Theme",
+                "desc": "Select a calming theme or scene for your guided imagery. It could be a peaceful beach, a serene forest, a meadow, or any place that brings you a sense of relaxation."
+            },
+            {
+                "step": "Inhale with Visualization",
+                "desc": "As you inhale, imagine yourself breathing in positive energy or calmness. Picture the air carrying a soothing color or light that represents tranquility."
+            },
+            {
+                "step": "Exhale Tension",
+                "desc": "As you exhale, imagine releasing any tension, stress, or negative thoughts. Visualize these leaving your body with each breath."
+            },
+            {
+                "step": "Explore the Imaginary Scene",
+                "desc": "Continue to breathe deeply as you explore your chosen imagery. Engage your senses in the visualization – feel the warmth of the sun, hear the gentle sounds of nature, and immerse yourself in the details of the scene."
+            },
+            {
+                "step": "Sync Breath with Imagery",
+                "desc": "Coordinate your breath with the elements of your visualization. Inhale as you take in the positive aspects of your chosen scene, and exhale as you release any stress or negativity."
+            },
+            {
+                "step": "Stay Present",
+                "desc": "If your mind wanders, gently bring your focus back to the guided imagery and your breath. Allow yourself to fully experience the sense of peace and relaxation."
+            },
+            {
+                "step": "Complete the Practice",
+                "desc": "Spend a few minutes immersed in the guided imagery. When you're ready to conclude the practice, slowly bring your awareness back to the present moment."
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "deley": 0.6,
+        "title": "4-4-8 Breathing",
+        "desc": "Inhale quietly through your nose for a count of four, hold your breath for four, and exhale completely through your mouth for eight. This can promote a sense of calmness and balance. This practice is designed to promote relaxation and a sense of calm. Here's how to practice 4-4-8 breathing:",
+        "preoces": [
+            {
+                "step": "Find a Comfortable Position",
+                "desc": "Sit or lie down in a comfortable position. Relax your shoulders and keep your spine straight."
+            },
+            {
+                "step": "Take a Deep Breath",
+                "desc": "Inhale quietly and deeply through your nose for a count of four. Focus on filling your lungs with air."
+            },
+            {
+                "step": "Hold Your Breath",
+                "desc": "After the inhale, hold your breath for a count of four. Keep the breath comfortably retained without any strain."
+            },
+            {
+                "step": "Exhale Slowly",
+                "desc": "Exhale slowly and completely through your mouth for a count of eight. Focus on releasing tension as you exhale."
+            },
+            {
+                "step": "Maintain a Steady Rhythm",
+                "desc": "Try to maintain a steady and controlled rhythm. Inhale for four counts, hold for four counts, and exhale for eight counts."
+            },
+            {
+                "step": "Repeat the Sequence",
+                "desc": "Continue the 4-4-8 sequence for several rounds. Inhale, hold, and exhale, making sure each part of the breath cycle is smooth and intentional."
+            },
+            {
+                "step": "Focus on the Breath",
+                "desc": "As you practice, keep your attention on the breath. Notice the sensation of the air as you inhale and exhale."
+            },
+            {
+                "step": "Adjust the Counts if Needed",
+                "desc": "If the count of four for inhalation and holding feels too short or too long, feel free to adjust it to a duration that feels comfortable and allows you to maintain a smooth and even flow of breath."
+            },
+            {
+                "step": "Complete the Practice",
+                "desc": "After completing several rounds, take a moment to notice how you feel. The 4-4-8 breathing technique can be repeated as needed to induce a state of relaxation."
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "deley": 0.7,
+        "title": "Sama Vritti (Equal Breathing)",
+        "desc": "Inhale and exhale for an equal count (e.g., inhale for four, exhale for four). This rhythmic breathing can help synchronize your breath and calm the mind. This practice can help calm the nervous system, promote focus, and induce a sense of balance and tranquility. Here's how to practice Sama Vritti:",
+        "preoces": [
+            {
+                "step": "Find a Comfortable Position",
+                "desc": "Sit in a comfortable position with your spine straight. You can sit on a chair with your feet flat on the floor or cross-legged on the ground. Alternatively, you can lie down on your back."
+            },
+            {
+                "step": "Relax Your Shoulders",
+                "desc": "Allow your shoulders to relax and place your hands on your knees or in your lap."
+            },
+            {
+                "step": "Begin with Natural Breathing",
+                "desc": "Take a few natural breaths to settle into the practice. Observe the natural rhythm of your breath without trying to change it."
+            },
+            {
+                "step": "Inhale and Exhale",
+                "desc": "Inhale through your nose for a count of, let's say, four seconds. Exhale through your nose for the same count of four seconds."
+            },
+            {
+                "step": "Equalize the Duration",
+                "desc": "Continue breathing with an equal duration for both inhalation and exhalation. For example, you can try inhaling and exhaling for a count of four, six, or eight, depending on your comfort level."
+            },
+            {
+                "step": "Focus on the Breath",
+                "desc": "Direct your attention to the sensation of the breath as it enters and leaves your nostrils or the gentle rise and fall of your chest and abdomen."
+            },
+            {
+                "step": "Maintain a Steady Rhythm",
+                "desc": "Try to maintain a steady and smooth rhythm throughout the practice. If your chosen count feels too short or too long, feel free to adjust it to a duration that suits you."
+            },
+            {
+                "step": "Mindful Awareness",
+                "desc": "Cultivate mindful awareness of your breath, allowing any distracting thoughts to pass without attachment. Simply bring your focus back to the breath and the present moment."
+            },
+            {
+                "step": "Practice for a Set Duration",
+                "desc": "Practice Sama Vritti for a set duration, such as 5-10 minutes, gradually extending the time as you become more comfortable with the technique."
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "deley": 0.8,
+        "title": "Resonant Breathing",
+        "desc": "Find a comfortable breathing rate, typically around six breaths per minute. This resonant frequency can help balance the autonomic nervous system and reduce stress. This practice aims to bring about a state of coherence, which is associated with increased mental clarity, emotional stability, and relaxation. Here's how to practice Resonant Breathing:",
+        "preoces": [
+            {
+                "step": "Find a Comfortable Position",
+                "desc": "Sit in a comfortable position with your spine straight. You can sit on a chair with your feet flat on the floor or cross-legged on the ground. Alternatively, you can lie down on your back."
+            },
+            {
+                "step": "Relax Your Shoulders",
+                "desc": "Allow your shoulders to relax and place your hands on your knees or in your lap."
+            },
+            {
+                "step": "Begin with Natural Breathing",
+                "desc": "Take a few natural breaths to settle into the practice. Observe the natural rhythm of your breath without trying to change it."
+            },
+            {
+                "step": "Establish a Breathing Rhythm",
+                "desc": "Inhale slowly and deeply through your nose for a count of about 5 or 6 seconds. Exhale slowly and completely through your nose for the same count of 5 or 6 seconds."
+            },
+            {
+                "step": "Maintain a Steady Rhythm",
+                "desc": "Continue breathing with this rhythmic pattern, maintaining an equal duration for both inhalation and exhalation. The key is to find a comfortable and sustainable rhythm."
+            },
+            {
+                "step": "Focus on the Breath",
+                "desc": "Direct your attention to the sensation of the breath as it enters and leaves your nostrils or the gentle rise and fall of your chest and abdomen."
+            },
+            {
+                "step": "Cultivate Coherence",
+                "desc": "Aim for a sense of coherence, where your breath is smooth and regular. This practice is about creating a balance in the autonomic nervous system."
+            },
+            {
+                "step": "Mindful Awareness",
+                "desc": "Cultivate mindful awareness of your breath, allowing any distracting thoughts to pass without attachment. Simply bring your focus back to the breath and the present moment."
+            },
+            {
+                "step": "Practice for a Set Duration",
+                "desc": "Practice Resonant Breathing for a set duration, such as 5-10 minutes, gradually extending the time as you become more comfortable with the technique."
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "deley": 0.9,
+        "title": "Belly Breathing (Diaphragmatic Breathing)",
+        "desc": "Inhale deeply through your nose, allowing your belly to rise. Exhale slowly through your mouth, feeling your belly fall. This encourages relaxation and reduces stress. This type of breathing is commonly used in various relaxation exercises, meditation, and stress management. Here's how to practice belly breathing:",
+        "preoces": [
+            {
+                "step": "Find a Comfortable Position",
+                "desc": "Sit or lie down in a comfortable position. If sitting, ensure that your back is straight and your shoulders are relaxed."
+            },
+            {
+                "step": "Place Your Hands on Your Belly",
+                "desc": "Put one hand on your chest and the other on your abdomen, just above your navel. This will help you become aware of the movement of your diaphragm."
+            },
+            {
+                "step": "Inhale Slowly Through Your Nose",
+                "desc": "Inhale deeply and slowly through your nose. Focus on allowing your abdomen to expand, rather than your chest. You should feel your diaphragm moving downward, causing your belly to rise."
+            },
+            {
+                "step": "Exhale Slowly Through Your Mouth",
+                "desc": "Exhale slowly through your mouth or nose, allowing your abdomen to fall. Feel the gentle contraction of your diaphragm."
+            },
+            {
+                "step": "Be Mindful of Your Breath",
+                "desc": "Pay attention to the sensation of the breath as it enters and leaves your body. Focus on the rise and fall of your abdomen."
+            },
+            {
+                "step": "Maintain a Steady Rhythm",
+                "desc": "Establish a steady and comfortable rhythm of breathing. Inhale for a count, hold briefly, and exhale for a count. You can gradually increase the duration as you become more comfortable."
+            },
+            {
+                "step": "Release Tension",
+                "desc": "As you exhale, consciously release any tension or stress. Let go of any tightness in your muscles, especially around your shoulders and chest."
+            },
+            {
+                "step": "Practice Regularly",
+                "desc": "Incorporate belly breathing into your daily routine, especially during moments of stress or as part of a relaxation routine. Regular practice helps make this type of breathing more natural."
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "deley": 1.0,
+        "title": "Alternate Nostril Breathing (Nadi Shodhana)",
+        "desc": "Use your thumb to close one nostril and inhale through the other. Switch nostrils and exhale. This practice can balance energy and promote mental clarity. Here's how to practice Alternate Nostril Breathing:",
+        "preoces": [
+            {
+                "step": "Find a Comfortable Seated Position",
+                "desc": "Sit in a comfortable cross-legged position on the floor or on a chair with your spine straight. Ensure your shoulders are relaxed."
+            },
+            {
+                "step": "Hand Position (Mudra)",
+                "desc": "Use your right thumb to close off your right nostril and your right ring finger to close off your left nostril. Your other fingers can rest gently on your forehead or in the space between your eyebrows."
+            },
+            {
+                "step": "Prepare for the Breath",
+                "desc": "Take a few natural breaths to settle into your seated position."
+            },
+            {
+                "step": "Close the Right Nostril",
+                "desc": "Use your right thumb to close off your right nostril. Inhale deeply and slowly through your left nostril."
+            },
+            {
+                "step": "Switch Nostrils",
+                "desc": "Close off your left nostril with your right ring finger, release your right nostril, and exhale slowly and completely through your right nostril."
+            },
+            {
+                "step": "Inhale Through the Right Nostril",
+                "desc": "Inhale deeply and slowly through your right nostril."
+            },
+            {
+                "step": "Switch Again",
+                "desc": "Close off your right nostril, release your left nostril, and exhale through your left nostril."
+            },
+            {
+                "step": "Repeat the Sequence",
+                "desc": "Continue this cycle, inhaling through one nostril and exhaling through the other. This completes one round."
+            },
+            {
+                "step": "Focus on Your Breath",
+                "desc": "As you practice, focus on the breath and the sensation of the air moving through each nostril. Keep your movements slow, deliberate, and controlled."
+            },
+            {
+                "step": "Complete Several Rounds",
+                "desc": "Aim to complete several rounds, gradually increasing the duration as you become more comfortable with the practice."
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "deley": 1.1,
+        "title": "Progressive Muscle Relaxation with Breath",
+        "desc": "Inhale while tensing a muscle group, then exhale as you release the tension. Move through different muscle groups, promoting both physical and mental relaxation. Here's how to practice Progressive Muscle Relaxation with Breath:",
+        "preoces": [
+            {
+                "step": "Find a Comfortable Position",
+                "desc": "Sit or lie down in a comfortable position. Ensure that you won't be disturbed during the practice."
+            },
+            {
+                "step": "Deep Breaths",
+                "desc": "Begin with a few deep breaths. Inhale slowly through your nose, and exhale completely through your mouth. This helps to initiate a state of relaxation."
+            },
+            {
+                "step": "Tense and Release",
+                "desc": "Start with a specific muscle group, such as your forehead or jaw. Inhale deeply, and as you exhale, consciously tense the muscles in that area. Hold the tension briefly, and then release the muscles completely as you continue to exhale."
+            },
+            {
+                "step": "Focus on Breath",
+                "desc": "As you release the tension in each muscle group, maintain your focus on your breath. Inhale relaxation and exhale any residual tension."
+            },
+            {
+                "step": "Systematic Progression",
+                "desc": "Progress through various muscle groups, working your way down from your head to your toes. Common muscle groups include the forehead, eyes, cheeks, jaw, neck, shoulders, arms, chest, abdomen, back, hips, legs, and feet."
+            },
+            {
+                "step": "Use Breath to Amplify Relaxation",
+                "desc": "With each muscle group, synchronize the tension and release with your breath. Inhale as you tense the muscles, and exhale as you release. This coordination can deepen the sense of relaxation."
+            },
+            {
+                "step": "Pay Attention to Sensations",
+                "desc": "As you practice, pay attention to the sensations in each muscle group. Notice the difference between tension and relaxation."
+            },
+            {
+                "step": "Complete the Practice",
+                "desc": "Once you've systematically gone through all muscle groups, take a few moments to enjoy the overall sense of relaxation. Gradually bring your awareness back to your surroundings."
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "deley": 1.2,
+        "title": "Humming Breath (Bhramari Pranayama)",
+        "desc": "Inhale deeply and exhale with a humming sound. This can have a calming effect on the nervous system and reduce stress. Here's how to practice Humming Breath:",
+        "preoces": [
+            {
+                "step": "Find a Comfortable Seated Position",
+                "desc": "Sit in a comfortable cross-legged position on the floor or on a chair with your spine straight. Relax your shoulders."
+            },
+            {
+                "step": "Close Your Eyes",
+                "desc": "Close your eyes to enhance your inward focus and concentration."
+            },
+            {
+                "step": "Place Your Hands",
+                "desc": "Rest your index fingers on your forehead, with the tips lightly touching the space between your eyebrows. Your other fingers can rest on your closed eyes or on your face."
+            },
+            {
+                "step": "Inhale Deeply",
+                "desc": "Inhale deeply and slowly through your nose. Focus on filling your lungs with air."
+            },
+            {
+                "step": "Exhale with a Humming Sound",
+                "desc": "As you exhale, close your lips and make a humming sound like a bee. Feel the vibration of the sound in your head and chest. Let the sound be continuous and steady."
+            },
+            {
+                "step": "Continue Humming",
+                "desc": "Keep humming for the entire duration of your exhalation. Allow the humming to be smooth and calming."
+            },
+            {
+                "step": "Focus on the Vibrations",
+                "desc": "Pay attention to the vibrations and the soothing resonance of the humming sound. Imagine the sound creating a sense of peace and tranquility within."
+            },
+            {
+                "step": "Inhale and Repeat",
+                "desc": "After completing the humming breath, inhale deeply and repeat the process for several rounds."
+            },
+            {
+                "step": "Release Your Hands",
+                "desc": "Once you've completed the rounds, release your hands and take a few natural breaths, noticing any changes in your body and mind."
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "deley": 1.3,
+        "title": "Body-Scan Meditation",
+        "desc": "Combine slow, deep breaths with a mental scan of your body. Inhale, directing your attention to one part of your body, and exhale, releasing any tension in that area. Here's a guide on how to practice body-scan meditation:",
+        "preoces": [
+            {
+                "step": "Find a Comfortable Position",
+                "desc": "Sit or lie down in a comfortable position. If lying down, keep your legs uncrossed and your arms by your sides. If sitting, ensure that your back is straight and your hands are resting comfortably."
+            },
+            {
+                "step": "Close Your Eyes",
+                "desc": "Close your eyes to enhance your inward focus and minimize external distractions."
+            },
+            {
+                "step": "Bring Attention to Your Breath",
+                "desc": "Take a few deep breaths to center yourself. Inhale slowly through your nose, and exhale completely through your mouth."
+            },
+            {
+                "step": "Start at the Feet",
+                "desc": "Direct your attention to your feet. Notice any sensations, such as warmth, coolness, tingling, or tension. Spend a few breaths focusing solely on the sensations in your feet."
+            },
+            {
+                "step": "Move Upwards",
+                "desc": "Gradually shift your attention to other parts of your body, moving upward from your feet. Pay attention to your ankles, calves, knees, thighs, and so on. Notice any sensations without judgment."
+            },
+            {
+                "step": "Scan the Entire Body",
+                "desc": "Continue scanning and bringing awareness to each part of your body, from your lower legs to your upper legs, from your hips to your torso, and so on. Move through your chest, arms, neck, and head."
+            },
+            {
+                "step": "Notice Tension",
+                "desc": "If you encounter areas of tension or discomfort, observe them without trying to change anything. Simply bring your awareness to those sensations and breathe."
+            },
+            {
+                "step": "Breathe Into Tension",
+                "desc": "As you encounter tension, imagine breathing into that area. Visualize your breath bringing relaxation and release to any tightness or discomfort."
+            },
+            {
+                "step": "Complete the Scan",
+                "desc": "Complete the body scan, bringing awareness to the top of your head. Take a few moments to observe the sensations in your entire body."
+            },
+            {
+                "step": "Take a Few Deep Breaths",
+                "desc": "When you're ready to conclude the practice, take a few deep breaths to reorient yourself to the present moment."
+            },
+            {
+                "step": "Open Your Eyes",
+                "desc": "If your eyes are closed, gently open them. Take a moment to transition back to your surroundings."
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "deley": 1.4,
+        "title": "Triangle Breathing",
+        "desc": "Inhale for a count of three, hold for three, exhale for three. Visualize an equilateral triangle as you move through each phase, providing a structured and calming rhythm. Here's a guide on how to practice Triangle Breathing:",
+        "preoces": [
+            {
+                "step": "Find a Comfortable Position",
+                "desc": "Sit in a comfortable position with your back straight. You can sit on a chair with your feet flat on the floor or cross-legged on the ground. Alternatively, you can lie down on your back."
+            },
+            {
+                "step": "Relax Your Shoulders",
+                "desc": "Allow your shoulders to relax and place your hands on your knees or in your lap."
+            },
+            {
+                "step": "Begin with Natural Breathing",
+                "desc": "Take a few natural breaths to settle into the practice. Observe the natural rhythm of your breath without trying to change it."
+            },
+            {
+                "step": "Inhale Slowly",
+                "desc": "Inhale slowly and deeply through your nose, counting to a certain number (e.g., four seconds). Visualize the first side of the triangle."
+            },
+            {
+                "step": "Hold Your Breath",
+                "desc": "After inhaling, hold your breath for the same count (e.g., four seconds). Visualize the second side of the triangle."
+            },
+            {
+                "step": "Exhale Slowly",
+                "desc": "Exhale slowly and completely through your nose or mouth, again counting to the same number (e.g., four seconds). Visualize the third side of the triangle."
+            },
+            {
+                "step": "Maintain a Steady Rhythm",
+                "desc": "Continue breathing with this triangular pattern, inhaling, holding, and exhaling for an equal duration. Adjust the count to a comfortable pace."
+            },
+            {
+                "step": "Focus on the Breath",
+                "desc": "Direct your attention to the sensation of the breath as it enters and leaves your nostrils or the gentle rise and fall of your chest and abdomen."
+            },
+            {
+                "step": "Mindful Awareness",
+                "desc": "Cultivate mindful awareness of your breath and the visualized triangle. Allow any distracting thoughts to pass without attachment."
+            },
+            {
+                "step": "Practice for a Set Duration",
+                "desc": "Practice Triangle Breathing for a set duration, such as 5-10 minutes, gradually extending the time as you become more comfortable with the technique."
+            }
+        ]
+    }
+]
