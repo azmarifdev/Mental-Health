@@ -1,65 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --bg-1: #0b1426;
+    --bg-2: #101d36;
+    --panel: rgba(19, 33, 58, 0.72);
+    --panel-strong: rgba(17, 30, 54, 0.9);
+    --line: rgba(255, 255, 255, 0.11);
+    --text: #e8eefc;
+    --text-soft: #b6c5ea;
+    --brand: #4ea8ff;
+    --brand-2: #2f74ff;
+    --accent: #2ad5a0;
+    --danger: #ff6a8e;
+    --shadow: 0 24px 60px rgba(6, 12, 25, 0.45);
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body {
-    background: #001422;
-    font-weight: 500;
-}
-
-.container {
-    max-width: 1380px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
 
 html {
     scroll-behavior: smooth;
 }
 
+body {
+    min-height: 100vh;
+    font-family: "Manrope", sans-serif;
+    color: var(--text);
+    background: radial-gradient(circle at 10% 12%, #1e3a67 0%, transparent 38%),
+        radial-gradient(circle at 86% 4%, #1c4d7a 0%, transparent 35%),
+        linear-gradient(150deg, var(--bg-1) 0%, var(--bg-2) 58%, #152846 100%);
+    background-attachment: fixed;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Sora", sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 span {
-    background: -webkit-linear-gradient(-45deg, #7741ec, #e04b93);
+    background: linear-gradient(120deg, #89d5ff 0%, #52a5ff 48%, #7cf2c2 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 @layer base {
     .desc {
-        @apply text-dark text-base;
+        @apply text-base leading-relaxed;
+        color: var(--text-soft);
     }
-    .btn-primary {
-        @apply bg-pink-500 duration-500 px-6  py-2 rounded-[6px] text-dark text-base font-medium;
-    }
-    .sub-head {
-        @apply text-2xl text-dark;
-    }
+
     .heading {
-        @apply md:text-5xl text-3xl text-center pb-1  font-medium text-dark;
+        @apply md:text-5xl text-3xl text-center font-bold;
+        color: var(--text);
     }
+
+    .sub-head {
+        @apply text-xl md:text-2xl;
+        color: var(--text-soft);
+    }
+
+    .btn-primary {
+        @apply inline-flex items-center justify-center rounded-xl px-6 py-2.5 text-sm md:text-base font-semibold transition-all duration-300;
+        color: #eef5ff;
+        background: linear-gradient(135deg, var(--brand), var(--brand-2));
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 12px 24px rgba(36, 112, 255, 0.32);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 30px rgba(36, 112, 255, 0.42);
+    }
+
+    .btn-primary:disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+    }
+}
+
+.glass-card {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(14px);
+}
+
+.section-block {
+    background: linear-gradient(
+        170deg,
+        rgba(255, 255, 255, 0.04),
+        rgba(255, 255, 255, 0.01)
+    );
+    border: 1px solid var(--line);
+    border-radius: 20px;
+}
+
+input,
+textarea,
+select {
+    color: var(--text);
+    background-color: rgba(12, 24, 45, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: rgba(101, 180, 255, 0.92);
+    box-shadow: 0 0 0 3px rgba(78, 168, 255, 0.2);
+}
+
+a {
+    transition: all 0.2s ease;
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
-    display: none;
+    width: 9px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
-    background: #eae7e7;
+    background: rgba(11, 19, 33, 0.7);
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 5px;
+    background: rgba(110, 153, 229, 0.5);
+    border-radius: 999px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555;
+    background: rgba(142, 185, 255, 0.7);
 }

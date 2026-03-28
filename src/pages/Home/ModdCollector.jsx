@@ -1,13 +1,11 @@
 import React, {useEffect, useState} from "react";
-import Container from "../../utils/Container";
 import {
     BsCalendar3,
-    BsEmojiLaughing,
     BsEmojiAngry,
+    BsEmojiLaughing,
     BsEmojiNeutral,
     BsEmojiSunglasses,
 } from "react-icons/bs";
-
 import {HiOutlineEmojiSad} from "react-icons/hi";
 import {useUserContext} from "../../context/AuthProvider";
 import {config} from "../../utils/envCongif";
@@ -50,7 +48,6 @@ const MoodCollector = () => {
     const [sad, setSad] = useState([]);
 
     const [lastOne, setLastOne] = useState({});
-
     const [remainingTime, setRemainingTime] = useState(null);
 
     useEffect(() => {
@@ -100,6 +97,7 @@ const MoodCollector = () => {
         if (!mood) {
             return toast.error("Please select a mood.");
         }
+
         const moodInfo = {
             userId: user?._id,
             mood,
@@ -127,100 +125,93 @@ const MoodCollector = () => {
     };
 
     return (
-        <div className="bg-primary text-gray-200">
-            <div className="container">
-                <div className="grid md:grid-cols-2 gap-10 py-16 text-center">
-                    <motion.div
-                        whileInView={{opacity: [0, 1], y: [0, -20]}}
-                        transition={{duration: 0.5, delay: 0.4}}
-                        className="relative rounded-lg flex justify-center items-center bg-secondary py-10 px-4 mt-10">
-                        <div>
-                            <div className="flex  items-center absolute top-4 left-4 text-sm">
-                                <BsCalendar3 size={16} className="mr-2" />{" "}
-                                {formattedDate}
-                            </div>
-                            <h2 className="text-2xl">How are feeling today?</h2>
-                            <div className="flex  justify-center items-center mt-2">
-                                <BsEmojiLaughing
-                                    size={30}
-                                    className="-mr-1 bg-purple-400 text-gray-700 rounded-full"
-                                />
-                                <BsEmojiAngry
-                                    size={30}
-                                    className="-mr-1 bg-rose-400 text-gray-700 rounded-full"
-                                />
-                                <HiOutlineEmojiSad
-                                    size={37}
-                                    className="-mr-1  rounded-full"
-                                />
-                                <BsEmojiNeutral
-                                    size={30}
-                                    className="-mr-1 bg-blue-300 text-gray-700 rounded-full"
-                                />
-                                <BsEmojiSunglasses
-                                    size={30}
-                                    className="-mr-2 bg-yellow-400 text-gray-700 rounded-full "
-                                />
-                            </div>
-                            <div className="flex mt-4">
-                                <div className="relative">
-                                    <select
-                                        id="level"
-                                        onChange={(e) =>
-                                            setMood(e.target.value)
-                                        }
-                                        value={mood}
-                                        name="level"
-                                        className="py-2 px-4 block border bg-primary border-gray-400 w-full rounded-md  focus:outline-none">
-                                        <option value="" selected disabled>
-                                            How's your vibe today?
-                                        </option>
-                                        <option value="Anxious">Anxious</option>
-                                        <option value="Stressed">
-                                            Stressed
-                                        </option>
-                                        <option value="Happy">Happy</option>
-                                        <option value="Angry">Angry</option>
-                                        <option value="Sad">Sad</option>
-                                    </select>
-                                </div>
-                                <button
-                                    type="submit"
-                                    disabled={isDisableButton(
-                                        lastOne?.createdAt
-                                    )}
-                                    onClick={handleSubmit}
-                                    className={`btn-primary  ml-3 py-1 ${
-                                        isDisableButton(lastOne?.createdAt)
-                                            ? "bg-gray-400 text-slate-800"
-                                            : ""
-                                    }`}>
-                                    Submit
-                                </button>
-                            </div>
-                            {remainingTime?.seconds > 0 && (
-                                <p className={`mt-2 `}>
-                                    <span>
-                                        You already submitted your vibes. Please
-                                        wait {remainingTime?.hours}.
-                                        {remainingTime?.minutes}.
-                                        {remainingTime?.seconds}
-                                    </span>
-                                </p>
-                            )}
-                        </div>
-                    </motion.div>
+        <section className="container py-16">
+            <div className="grid gap-8 md:grid-cols-2">
+                <motion.div
+                    whileInView={{opacity: [0, 1], y: [18, 0]}}
+                    transition={{duration: 0.5, delay: 0.2}}
+                    className="section-block relative p-6 md:p-8 text-center md:text-left">
+                    <p className="absolute right-4 top-4 inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/10 px-3 py-1 text-xs text-slate-200">
+                        <BsCalendar3 size={14} /> {formattedDate}
+                    </p>
 
-                    <Emotions
-                        stressed={stressed}
-                        anxious={anxious}
-                        happy={happy}
-                        angry={angry}
-                        sad={sad}
-                    />
-                </div>
+                    <h2 className="text-2xl font-bold text-white md:text-3xl">
+                        How are you feeling today?
+                    </h2>
+                    <p className="mt-2 text-sm text-slate-300">
+                        Pick your current mood once every 24 hours.
+                    </p>
+
+                    <div className="mt-5 flex justify-center md:justify-start">
+                        <div className="flex items-center">
+                            <BsEmojiLaughing
+                                size={30}
+                                className="-mr-1 rounded-full bg-yellow-300 p-1 text-slate-700"
+                            />
+                            <BsEmojiAngry
+                                size={30}
+                                className="-mr-1 rounded-full bg-rose-300 p-1 text-slate-700"
+                            />
+                            <HiOutlineEmojiSad
+                                size={37}
+                                className="-mr-1 rounded-full bg-white/20 p-1"
+                            />
+                            <BsEmojiNeutral
+                                size={30}
+                                className="-mr-1 rounded-full bg-sky-300 p-1 text-slate-700"
+                            />
+                            <BsEmojiSunglasses
+                                size={30}
+                                className="rounded-full bg-emerald-300 p-1 text-slate-700"
+                            />
+                        </div>
+                    </div>
+
+                    <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+                        <select
+                            id="level"
+                            onChange={(e) => setMood(e.target.value)}
+                            value={mood}
+                            name="level"
+                            className="w-full rounded-xl px-4 py-2">
+                            <option value="" disabled>
+                                How's your vibe today?
+                            </option>
+                            <option value="Anxious">Anxious</option>
+                            <option value="Stressed">Stressed</option>
+                            <option value="Happy">Happy</option>
+                            <option value="Angry">Angry</option>
+                            <option value="Sad">Sad</option>
+                        </select>
+
+                        <button
+                            type="button"
+                            disabled={isDisableButton(lastOne?.createdAt)}
+                            onClick={handleSubmit}
+                            className="btn-primary min-w-[140px]">
+                            Submit Mood
+                        </button>
+                    </div>
+
+                    {remainingTime?.seconds > 0 && (
+                        <p className="mt-3 text-xs text-amber-200">
+                            Already submitted. Please wait {remainingTime?.hours}:
+                            {remainingTime?.minutes}:{String(
+                                remainingTime?.seconds
+                            ).padStart(2, "0")}
+                        </p>
+                    )}
+                </motion.div>
+
+                <Emotions
+                    stressed={stressed}
+                    anxious={anxious}
+                    happy={happy}
+                    angry={angry}
+                    sad={sad}
+                />
             </div>
-        </div>
+        </section>
     );
 };
 

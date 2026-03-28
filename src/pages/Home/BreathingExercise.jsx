@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {motion} from "framer-motion";
 import {IoIosArrowForward} from "react-icons/io";
-import Container from "../../utils/Container";
 import Heading from "../../utils/Heading";
 import BreathingDetails from "../../components/BreathingDetails/BreathingDetails";
 import {Link, useLocation} from "react-router-dom";
@@ -12,17 +11,17 @@ const BreathingExercise = () => {
     const [showModal, setShowModal] = useState(false);
     const [currentData, setCurrentData] = useState({});
     const [data, setData] = useState([]);
-    const [loading, setloading] = useState(true);
+    const [loading, setLoading] = useState(true);
 
     const pathname = useLocation().pathname;
 
     useEffect(() => {
-        setloading(true);
+        setLoading(true);
         fetch("exercise.json")
             .then((res) => res.json())
-            .then((data) => {
-                setData(data);
-                setloading(false);
+            .then((items) => {
+                setData(items);
+                setLoading(false);
             });
     }, []);
 
@@ -30,114 +29,57 @@ const BreathingExercise = () => {
         return <Loading />;
     }
 
+    const list = pathname === "/breathing-exercises" ? data : data?.slice(0, 8);
+
     return (
-        <div className={`${pathname == "/" && " bg-primary"} py-20`}>
-            <div className="container">
-                <div>
-                    <Heading title={"Some Breathing Exercises"} />
-                </div>
-                <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-10">
-                    {pathname === "/breathing-exercises" ? (
-                        <>
-                            {" "}
-                            {data?.map((d, i) => (
-                                <motion.div
-                                    whileInView={{opacity: [0, 1], x: [-20, 0]}}
-                                    transition={{duration: 0.7, delay: d.deley}}
-                                    initial={{opacity: 0}}
-                                    key={i}
-                                    className="flex flex-col items-center justify-center text-center bg-secondary border border-gray-700 shadow-sm rounded-lg md:p-0 p-4">
-                                    <div className="p-4 md:p-5">
-                                        <h3 className="text-lg font-bold text-gray-100">
-                                            {d?.title}
-                                        </h3>
-                                        <p className="text-gray-200 text-base">
-                                            {d?.desc?.length > 100
-                                                ? `${d?.desc?.slice(0, 100)}...`
-                                                : desc}
-                                        </p>
-                                        <div className="mt-2  text-base font-semibold rounded-lg ">
-                                            <button
-                                                onClick={() => {
-                                                    setShowModal(true);
-                                                    setCurrentData(d);
-                                                }}
-                                                type="submit"
-                                                className="inline-flex items-center gap-x-1">
-                                                <span> Read more</span>
-                                                <IoIosArrowForward
-                                                    size={16}
-                                                    className="text-gray-200"
-                                                />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </>
-                    ) : (
-                        <>
-                            {data?.slice(0, 8)?.map((d, i) => (
-                                <motion.div
-                                    key={i}
-                                    whileInView={{opacity: [0, 1], x: [-20, 0]}}
-                                    transition={{duration: 0.7, delay: d.deley}}
-                                    initial={{opacity: 0}}
-                                    className="flex flex-col items-center justify-center text-center bg-secondary border border-gray-700 shadow-sm rounded-lg md:p-0 p-4">
-                                    <div className="p-4 md:p-5">
-                                        <h3 className="text-lg font-bold text-gray-100">
-                                            {d?.title}
-                                        </h3>
-                                        <p className="text-gray-200 text-base">
-                                            {d?.desc?.length > 100
-                                                ? `${d?.desc?.slice(0, 100)}...`
-                                                : desc}
-                                        </p>
-                                        <div className="mt-2  text-base font-semibold rounded-lg ">
-                                            <button
-                                                onClick={() => {
-                                                    setShowModal(true);
-                                                    setCurrentData(d);
-                                                }}
-                                                type="submit"
-                                                className="inline-flex items-center gap-x-1">
-                                                <span> Read more</span>
-                                                <IoIosArrowForward
-                                                    size={16}
-                                                    className="text-gray-200"
-                                                />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </>
-                    )}
-                </div>
-                {pathname === "/" && (
-                    <div className=" flex justify-end mt-8">
-                        <div className="group">
-                            <Link
-                                to={"/breathing-exercises"}
-                                className="btn-primary inline-flex items-center ">
-                                See all{" "}
-                                <FaArrowCircleRight
-                                    size={15}
-                                    className="ml-2 group-hover:ml-4 duration-300"
-                                />
-                            </Link>
-                        </div>
-                    </div>
-                )}
-                {showModal && (
-                    <BreathingDetails
-                        currentData={currentData}
-                        setShowModal={setShowModal}
-                        showModal={showModal}
-                    />
-                )}
+        <section className="container py-16">
+            <Heading title="Guided Breathing Exercises" />
+
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:grid-cols-4">
+                {list?.map((d, i) => (
+                    <motion.div
+                        whileInView={{opacity: [0, 1], y: [16, 0]}}
+                        transition={{duration: 0.5, delay: d.deley}}
+                        initial={{opacity: 0}}
+                        key={i}
+                        className="glass-card flex flex-col p-5">
+                        <h3 className="text-lg font-bold text-white">{d?.title}</h3>
+                        <p className="mt-2 text-sm text-slate-300">
+                            {d?.desc?.length > 110
+                                ? `${d?.desc?.slice(0, 110)}...`
+                                : d?.desc}
+                        </p>
+                        <button
+                            onClick={() => {
+                                setShowModal(true);
+                                setCurrentData(d);
+                            }}
+                            type="button"
+                            className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-sky-200 hover:text-white">
+                            Read more <IoIosArrowForward size={16} />
+                        </button>
+                    </motion.div>
+                ))}
             </div>
-        </div>
+
+            {pathname === "/" && (
+                <div className="mt-8 flex justify-end">
+                    <Link
+                        to="/breathing-exercises"
+                        className="btn-primary inline-flex items-center gap-2">
+                        See all <FaArrowCircleRight size={15} />
+                    </Link>
+                </div>
+            )}
+
+            {showModal && (
+                <BreathingDetails
+                    currentData={currentData}
+                    setShowModal={setShowModal}
+                    showModal={showModal}
+                />
+            )}
+        </section>
     );
 };
 

@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import Lottie from "lottie-react";
-import Container from "../../utils/Container";
 import support from "../../assets/support.json";
 import Heading from "../../utils/Heading";
 import {MdEmail} from "react-icons/md";
@@ -9,55 +8,41 @@ import {motion} from "framer-motion";
 
 const Support = () => {
     return (
-        <div className="py-10">
-            <div className=" grid md:grid-cols-2   container">
-                <div className=" md:grid place-content-center">
-                    <div className="flex flex-col md:mr-4 desc text-lg">
-                        <div>
-                            <Heading title={"Get community support"} />
-                        </div>
-
-                        <motion.div
-                            whileInView={{opacity: [0, 1], x: [-20, 0]}}
-                            transition={{duration: 0.7, delay: 0.5}}>
-                            <p className="mb-3 text-gray-200">
-                                "Find solace and strength in our Mental Health
-                                Community. Here, support is a heartbeat away.
-                                Share, listen, and thrive together on the
-                                journey to wellbeing. Your voice matters, and so
-                                does your mental health. Join us today."
+        <section className="container py-16">
+            <div className="grid items-center gap-8 md:grid-cols-2">
+                <div className="section-block p-6 md:p-8">
+                    <Heading title="Get Community Support" />
+                    <motion.div
+                        whileInView={{opacity: [0, 1], x: [-20, 0]}}
+                        transition={{duration: 0.6, delay: 0.2}}>
+                        <p className="desc mb-5">
+                            Find solace and strength in our mental wellness
+                            community. Share, listen, and heal together. Your
+                            voice matters, and support is always one step away.
+                        </p>
+                        <div className="space-y-2 text-slate-200">
+                            <p className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2">
+                                <IoCall size={18} /> +880 17448******
                             </p>
-                            <div>
-                                <div>
-                                    <p className="inline-flex items-center">
-                                        <IoCall size={20} />
-                                        <span className="ml-2">
-                                            +880 17448******
-                                        </span>
-                                    </p>
-                                </div>
-                                <p className="inline-flex items-center">
-                                    <MdEmail size={20} />
-                                    <span className="ml-2">
-                                        example@gmail.com
-                                    </span>
-                                </p>
-                            </div>
-                        </motion.div>
-                    </div>
+                            <p className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2">
+                                <MdEmail size={18} /> example@gmail.com
+                            </p>
+                        </div>
+                    </motion.div>
                 </div>
+
                 <motion.div
                     whileInView={{opacity: [0, 1], y: [0, -20]}}
-                    transition={{duration: 0.7, delay: 0.5}}
-                    className="flex -z-40 items-center rounded-xl justify-center md:p-6 md:mt-8 md:mr-8 ">
+                    transition={{duration: 0.6, delay: 0.2}}
+                    className="glass-card flex items-center justify-center p-4 md:p-6">
                     <Lottie
-                        className="object-contain rounded-xl  md:w-[440px]  w-full"
+                        className="w-full max-w-md rounded-xl"
                         animationData={support}
-                        loop={true}
+                        loop
                     />
                 </motion.div>
             </div>
-        </div>
+        </section>
     );
 };
 

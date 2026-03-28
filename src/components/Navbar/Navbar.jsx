@@ -1,13 +1,29 @@
 import {useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import {HiBars3} from "react-icons/hi2";
 import {MdOutlineCancel} from "react-icons/md";
 import {useUserContext} from "../../context/AuthProvider";
 import {config} from "../../utils/envCongif";
 import toast from "react-hot-toast";
 
+const navItems = [
+    {to: "/", label: "Home"},
+    {to: "/journals", label: "Journals"},
+    {to: "/breathing-exercises", label: "Exercises"},
+    {to: "/meditations", label: "Meditations"},
+    {to: "/chat-with-bot", label: "Chat Bot"},
+    {to: "/dashboard/profile", label: "Dashboard"},
+];
+
+const navClass = ({isActive}) =>
+    `rounded-xl px-3 py-2 text-sm font-semibold transition ${
+        isActive
+            ? "bg-white/15 text-white"
+            : "text-slate-200 hover:bg-white/10 hover:text-white"
+    }`;
+
 const Navbar = () => {
-    const {setUser, token, setToken} = useUserContext();
+    const {setUser, setToken} = useUserContext();
     const [open, setOpen] = useState(false);
 
     const handleLogout = () => {
@@ -26,140 +42,78 @@ const Navbar = () => {
                     toast.success("Logout successfully.");
                 }
             })
-            .catch((err) => {
-                console.log(err);
+            .catch(() => {
+                toast.error("Logout failed. Please try again.");
             });
     };
 
     return (
-        <nav className="bg-primary sticky -top-0 right-0 z-[99999999]  py-7">
-            <div className="flex items-center font-medium justify-between container">
-                <div className="md:w-auto w-full flex justify-between items-center">
-                    <Link to="/" className="inline-flex items-center">
-                        {/* <img
-                            src="logo.png"
-                            className=" w-[90px]  h-[75px] "
-                            alt=""
-                        /> */}
-                        <h1 className="text-3xl text-gray-200">
-                            <big className="text-5xl text-pink-500"> M</big>
-                            ental health
-                        </h1>
+        <header className="sticky top-0 z-[99999999] border-b border-white/10 bg-slate-950/55 backdrop-blur-xl">
+            <nav className="container py-4">
+                <div className="flex items-center justify-between gap-4">
+                    <Link to="/" className="flex items-center gap-3">
+                        <div className="grid h-11 w-11 place-content-center rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 text-xl font-extrabold text-white shadow-xl shadow-sky-700/40">
+                            M
+                        </div>
+                        <div>
+                            <p className="text-lg font-bold tracking-tight text-white">
+                                Mental Health
+                            </p>
+                            <p className="text-xs text-slate-300">
+                                Wellbeing Platform
+                            </p>
+                        </div>
                     </Link>
-                    <div
-                        className="text-3xl md:hidden text-gray-300"
+
+                    <ul className="hidden items-center gap-2 lg:flex">
+                        {navItems.map((item) => (
+                            <li key={item.to}>
+                                <NavLink className={navClass} to={item.to}>
+                                    {item.label}
+                                </NavLink>
+                            </li>
+                        ))}
+                        <li>
+                            <button onClick={handleLogout} className="btn-primary">
+                                Logout
+                            </button>
+                        </li>
+                    </ul>
+
+                    <button
+                        type="button"
+                        className="rounded-xl border border-white/20 bg-white/10 p-2 text-2xl text-white lg:hidden"
                         onClick={() => setOpen(!open)}>
                         {open ? <MdOutlineCancel /> : <HiBars3 />}
+                    </button>
+                </div>
+
+                <div
+                    className={`overflow-hidden transition-all duration-300 lg:hidden ${
+                        open ? "max-h-[480px] pt-5" : "max-h-0"
+                    }`}>
+                    <div className="glass-card p-4">
+                        <ul className="space-y-2">
+                            {navItems.map((item) => (
+                                <li key={item.to}>
+                                    <NavLink
+                                        to={item.to}
+                                        className={navClass}
+                                        onClick={() => setOpen(false)}>
+                                        {item.label}
+                                    </NavLink>
+                                </li>
+                            ))}
+                        </ul>
+                        <button
+                            onClick={handleLogout}
+                            className="btn-primary mt-4 w-full">
+                            Logout
+                        </button>
                     </div>
                 </div>
-                <ul className="md:flex hidden  space-x-1 items-center gap-7 font-[Poppins]">
-                    <li>
-                        <Link
-                            to="/"
-                            className="inline-block hover:text-gray-400 duration-300 font-medium text-gray-200 text-lg">
-                            Home
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            to="/journals"
-                            className="inline-block hover:text-gray-400 duration-300 font-medium text-gray-200 text-lg">
-                            Journals
-                        </Link>
-                    </li>{" "}
-                    <li>
-                        <Link
-                            to="/breathing-exercises"
-                            className="inline-block hover:text-gray-400 duration-300 font-medium text-gray-200 text-lg">
-                            Exersices
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            to="/meditations"
-                            className="inline-block hover:text-gray-400 duration-300 font-medium text-gray-200 text-lg">
-                            Meditations
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            to="/chat-with-bot"
-                            className="inline-block hover:text-gray-400 duration-300 font-medium text-gray-200 text-lg">
-                            Chat Bot
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            to="/dashboard/profile"
-                            className="inline-block hover:text-gray-400 duration-300 font-medium text-gray-200 text-lg">
-                            Dashboard
-                        </Link>
-                    </li>
-                    <li>
-                        <button
-                            onClick={handleLogout}
-                            className="py-1.5 btn-primary">
-                            Logout
-                        </button>
-                    </li>
-                </ul>
-                <ul
-                    className={`md:hidden flex flex-col space-y-3 text-center bg-secondary fixed w-full top-16 overflow-y-auto bottom-0 py-10 mt-7 pl-4 duration-500 ${
-                        open ? "left-0" : "left-[-100%]"
-                    }
-        `}>
-                    <li className="mt-14">
-                        <Link
-                            to="/"
-                            className="inline-block hover:text-gray-400 duration-300 font-medium text-gray-200 text-lg px-3">
-                            Home
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            to="/journals"
-                            className="inline-block hover:text-gray-400 duration-300 font-medium text-gray-200 text-lg">
-                            Journals
-                        </Link>
-                    </li>{" "}
-                    <li>
-                        <Link
-                            to="/breathing-exercises"
-                            className="inline-block hover:text-gray-400 duration-300 font-medium text-gray-200 text-lg">
-                            Exersices
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            to="/meditations"
-                            className="inline-block hover:text-gray-400 duration-300 font-medium text-gray-200 text-lg">
-                            Meditations
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            to="/chat-with-bot"
-                            className="inline-block hover:text-gray-400 duration-300 font-medium text-gray-200 text-lg">
-                            Chat with Bot
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            to="/dashboard/profile"
-                            className="inline-block hover:text-gray-400 duration-300 font-medium text-gray-200 text-lg">
-                            Dashboard
-                        </Link>
-                    </li>
-                    <li>
-                        <button
-                            onClick={handleLogout}
-                            className="py-1.5 btn-primary">
-                            Logout
-                        </button>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+            </nav>
+        </header>
     );
 };
 

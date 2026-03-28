@@ -54,113 +54,110 @@ const Profile = () => {
     }, [allMoods]);
     return (
         <div className="mb-10">
-            <div className="grid md:grid-cols-2 gap-10">
+            <div className="grid gap-8 md:grid-cols-2">
                 {allMoods?.length ? (
-                    <>
-                        <motion.div
-                            whileInView={{opacity: [0, 1], y: [0, -20]}}
-                            transition={{duration: 0.5, delay: 0.4}}
-                            initial={{opacity: 0}}
-                            className="">
-                            <div className="flex justify-center items-center">
-                                <Chart
-                                    options={{
-                                        labels: [
-                                            "Anxious",
-                                            "Stressed",
-                                            "Happy",
-                                            "Angry",
-                                            "Sad",
-                                        ],
-                                        legend: {
-                                            fontSize: "16px",
-                                            labels: {
-                                                colors: "#f1f1f1",
-                                                useSeriesColors: false,
-                                            },
-                                            horizontalAlign: "center",
-
-                                            position: "bottom",
+                    <motion.div
+                        whileInView={{opacity: [0, 1], y: [0, -16]}}
+                        transition={{duration: 0.45, delay: 0.2}}
+                        initial={{opacity: 0}}
+                        className="glass-card p-3 md:p-5">
+                        <div className="flex items-center justify-center">
+                            <Chart
+                                options={{
+                                    labels: [
+                                        "Anxious",
+                                        "Stressed",
+                                        "Happy",
+                                        "Angry",
+                                        "Sad",
+                                    ],
+                                    legend: {
+                                        fontSize: "14px",
+                                        labels: {
+                                            colors: "#E8EEFC",
+                                            useSeriesColors: false,
                                         },
-                                        theme: {
-                                            mode: "light",
-                                            palette: "palette",
-                                            monochrome: {
-                                                enabled: false,
-                                                color: "#255aee",
-                                                shadeTo: "light",
-                                                shadeIntensity: 0.65,
-                                            },
+                                        horizontalAlign: "center",
+                                        position: "bottom",
+                                    },
+                                    theme: {
+                                        mode: "dark",
+                                    },
+                                    chart: {
+                                        toolbar: { show: false },
+                                        background: "transparent",
+                                    },
+                                    dataLabels: {
+                                        enabled: true,
+                                        style: {
+                                            colors: ["#0B1426"],
                                         },
-                                        responsive: [
-                                            {
-                                                breakpoint: 978,
-                                                options: {
-                                                    chart: {
-                                                        width: 380,
-                                                    },
-                                                    legend: {
-                                                        position: "bottom",
-                                                    },
+                                    },
+                                    colors: [
+                                        "#7DD3FC",
+                                        "#93C5FD",
+                                        "#86EFAC",
+                                        "#FCA5A5",
+                                        "#C4B5FD",
+                                    ],
+                                    responsive: [
+                                        {
+                                            breakpoint: 978,
+                                            options: {
+                                                chart: {
+                                                    width: 360,
                                                 },
                                             },
-                                            {
-                                                breakpoint: 480,
-                                                options: {
-                                                    chart: {
-                                                        width: 300,
-                                                    },
-                                                    legend: {
-                                                        position: "bottom",
-                                                    },
+                                        },
+                                        {
+                                            breakpoint: 480,
+                                            options: {
+                                                chart: {
+                                                    width: 280,
                                                 },
                                             },
-                                        ],
-                                    }}
-                                    series={[
-                                        anxious?.length,
-                                        stressed?.length,
-                                        happy?.length,
-                                        angry?.length,
-                                        sad?.length,
-                                    ]}
-                                    type="pie"
-                                    width={400}
-                                    height={350}
-                                />
-                            </div>
-                        </motion.div>
-                    </>
-                ) : (
-                    <></>
-                )}
+                                        },
+                                    ],
+                                }}
+                                series={[
+                                    anxious?.length,
+                                    stressed?.length,
+                                    happy?.length,
+                                    angry?.length,
+                                    sad?.length,
+                                ]}
+                                type="pie"
+                                width={400}
+                                height={350}
+                            />
+                        </div>
+                    </motion.div>
+                ) : null}
 
-                <div>
-                    <Emotions
-                        stressed={stressed}
-                        anxious={anxious}
-                        happy={happy}
-                        angry={angry}
-                        sad={sad}
-                    />
-                </div>
+                <Emotions
+                    stressed={stressed}
+                    anxious={anxious}
+                    happy={happy}
+                    angry={angry}
+                    sad={sad}
+                />
 
                 <motion.div
-                    whileInView={{opacity: [0, 1], y: [0, -20]}}
-                    transition={{duration: 0.5, delay: 0.4}}
+                    whileInView={{opacity: [0, 1], y: [0, -16]}}
+                    transition={{duration: 0.45, delay: 0.2}}
                     initial={{opacity: 0}}
-                    className="rounded-lg text-gray-200 flex justify-center items-center bg-primary py-14 px-4 relative mt-10">
-                    <div>
-                        <p className="text-center font-semibold text-2xl">
+                    className="glass-card relative mt-1 flex items-center justify-center px-4 py-12 text-gray-200 md:col-span-2">
+                    <div className="text-center">
+                        <p className="text-4xl font-extrabold text-white">
                             {journals?.length ? journals.length : 0}
                         </p>
-                        <h2 className="text-xl mb-3 font-semibold">
-                            Your Journals
+                        <h2 className="mb-4 mt-2 text-lg font-semibold text-slate-200">
+                            Journals In Your Collection
                         </h2>
                         <Link
                             to={"/dashboard/add-journal"}
-                            className="btn-primary py-2 text-lg">
-                            Add journal
+                            className="btn-primary py-2 text-base">
+                            Add Journal
                         </Link>
                     </div>
                 </motion.div>

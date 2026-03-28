@@ -3,8 +3,8 @@ import {router} from "./Router/router";
 
 const App = () => {
     return (
-        <div className="font-serif">
-            <RouterProvider router={router}></RouterProvider>
+        <div className="min-h-screen text-slate-100">
+            <RouterProvider router={router} />
         </div>
     );
 };
