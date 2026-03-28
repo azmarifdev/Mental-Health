@@ -39,113 +39,97 @@ const MyJournals = () => {
     }
 
     return (
-        <div>
-            <div className="grid lg:grid-cols-3  md:grid-cols-2  grid-cols-1 gap-10 text-gray-200 mt-5">
+        <div className="py-2">
+            <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+                <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">
+                        Dashboard Library
+                    </p>
+                    <h1 className="mt-2 text-2xl font-bold text-white md:text-4xl">
+                        My Journals
+                    </h1>
+                    <p className="mt-2 text-sm text-slate-300">
+                        Your personal reflections and writing history.
+                    </p>
+                </div>
+                <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200">
+                    Total: <b>{journals?.length || 0}</b>
+                </div>
+            </div>
+
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {journals?.length ? (
-                    <>
-                        {journals?.map((jn, i) => (
-                            <motion.div
-                                whileInView={{opacity: [0, 1], y: [0, -20]}}
-                                transition={{duration: 0.7, delay: 0.4}}
-                                initial={{opacity: 0}}
-                                key={i}
-                                className="flex flex-col  bg-primary border border-gray-700 shadow-sm rounded-lg md:p-0 p-5">
-                                <div className="p-4 md:p-5">
-                                    <p className="text-xs text-right">
-                                        <TimeAgo
-                                            datetime={formattedDate(
-                                                jn?.createdAt
-                                            )}
-                                        />
-                                    </p>{" "}
-                                    {showModal && (
-                                        <JournalModel
-                                            showModal={showModal}
-                                            setShowModal={setShowModal}
-                                            currentJournal={currentJournal}
-                                        />
-                                    )}
-                                    <h3 className="text-lg font-bold text-dark">
-                                        {jn.title}
-                                    </h3>
-                                    {jn.desc.length > 80
-                                        ? jn?.desc
-                                              ?.slice(0, 95)
-                                              ?.split("\n")
-                                              .map((line, index) => (
-                                                  <p
-                                                      className="text-gray-200 text-base capitalize"
-                                                      key={index}>
-                                                      {line}
-                                                  </p>
-                                              ))
-                                        : jn?.desc
-                                              ?.split("\n")
-                                              .map((line, index) => (
-                                                  <p
-                                                      className="text-gray-200 text-base capitalize"
-                                                      key={index}>
-                                                      {line}
-                                                  </p>
-                                              ))}
-                                    <div className="mt-2  flex justify-between text-base font-semibold rounded-lg ">
-                                        <button
-                                            type="submit"
-                                            onClick={() => {
-                                                setShowModal(true);
-                                                setCurrentJournal(jn);
-                                            }}
-                                            className="inline-flex items-center gap-x-1">
-                                            <span> Read more</span>
-                                            <IoIosArrowForward size={16} />
-                                        </button>
-                                        <button
-                                            onClick={() => {
-                                                setShowDeleteModal(true);
-                                                setCurrentJournal(jn);
-                                            }}>
-                                            <IoMdTrash
-                                                size={22}
-                                                className="text-pink-500"
-                                            />
-                                        </button>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </>
+                    journals?.map((jn, i) => (
+                        <motion.article
+                            whileInView={{opacity: [0, 1], y: [0, -12]}}
+                            transition={{duration: 0.45, delay: i * 0.04}}
+                            initial={{opacity: 0}}
+                            key={i}
+                            className="glass-card flex flex-col p-5">
+                            <p className="text-xs text-slate-300">
+                                <TimeAgo datetime={formattedDate(jn?.createdAt)} />
+                            </p>
+                            <h3 className="mt-2 text-lg font-bold text-white">
+                                {jn.title}
+                            </h3>
+                            <div className="mt-2 space-y-1 text-sm leading-relaxed text-slate-300">
+                                {(jn.desc.length > 110
+                                    ? `${jn?.desc?.slice(0, 110)}...`
+                                    : jn?.desc
+                                )
+                                    ?.split("\n")
+                                    .map((line, index) => (
+                                        <p key={index}>{line}</p>
+                                    ))}
+                            </div>
+                            <div className="mt-4 flex items-center justify-between">
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        setShowModal(true);
+                                        setCurrentJournal(jn);
+                                    }}
+                                    className="inline-flex items-center gap-1 text-sm font-semibold text-sky-200 hover:text-white">
+                                    Read more <IoIosArrowForward size={16} />
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        setShowDeleteModal(true);
+                                        setCurrentJournal(jn);
+                                    }}
+                                    className="rounded-lg border border-rose-300/20 bg-rose-400/10 p-2 text-rose-300 hover:bg-rose-400/20">
+                                    <IoMdTrash size={18} />
+                                </button>
+                            </div>
+                        </motion.article>
+                    ))
                 ) : (
-                    <>
-                        <div className="h-[50vh] flex flex-col justify-center items-center text-center lg:col-span-4 md:col-span-3 text-3xl">
-                            <p> No journal available.</p>
-                            <Link
-                                className="text-lg underline"
-                                to={"/dashboard/add-journal"}>
-                                Add journal
-                            </Link>
-                        </div>
-                    </>
+                    <div className="glass-card col-span-full flex min-h-[260px] flex-col items-center justify-center text-center">
+                        <p className="text-2xl text-slate-200">No journal available.</p>
+                        <Link className="mt-2 text-sky-200 underline" to={"/dashboard/add-journal"}>
+                            Add journal
+                        </Link>
+                    </div>
                 )}
             </div>
-            <>
-                {" "}
-                {showModal && (
-                    <JournalModel
-                        showModal={showModal}
-                        setShowModal={setShowModal}
-                        currentJournal={currentJournal}
-                    />
-                )}
-                {showDeleteModal && (
-                    <DeleteModal
-                        showModal={showDeleteModal}
-                        setShowModal={setShowDeleteModal}
-                        data={currentJournal}
-                        refetch={refetch}
-                        setRefetch={setRefetch}
-                    />
-                )}
-            </>
+
+            {showModal && (
+                <JournalModel
+                    showModal={showModal}
+                    setShowModal={setShowModal}
+                    currentJournal={currentJournal}
+                />
+            )}
+            {showDeleteModal && (
+                <DeleteModal
+                    showModal={showDeleteModal}
+                    setShowModal={setShowDeleteModal}
+                    data={currentJournal}
+                    refetch={refetch}
+                    setRefetch={setRefetch}
+                />
+            )}
         </div>
     );
 };

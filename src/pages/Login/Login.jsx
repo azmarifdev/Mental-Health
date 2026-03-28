@@ -18,6 +18,16 @@ const LoginPage = () => {
         email: "",
         password: "",
     };
+
+    const handleCopy = async (value, label) => {
+        try {
+            await navigator.clipboard.writeText(value);
+            toast.success(`${label} copied`);
+        } catch (err) {
+            toast.error(`Could not copy ${label.toLowerCase()}`);
+        }
+    };
+
     useEffect(() => {
         if (token) {
             navigate(from, {replace: true});
@@ -28,19 +38,16 @@ const LoginPage = () => {
         useFormik({
             initialValues: initialLoginValues,
             validationSchema: loginSchema,
-            onSubmit: (values, action) => {
-                const {email, password} = values;
-                const loginInfo = {
-                    email,
-                    password,
-                };
+            onSubmit: (formValues, action) => {
+                const email = formValues.email.trim().toLowerCase();
+                const password = formValues.password;
 
                 fetch(`${config.base_url}/auth/login`, {
                     method: "POST",
                     headers: {
                         "Content-type": "application/json",
                     },
-                    body: JSON.stringify(loginInfo),
+                    body: JSON.stringify({email, password}),
                 })
                     .then((res) => res.json())
                     .then((data) => {
@@ -52,120 +59,129 @@ const LoginPage = () => {
                             setToken(data.data.accessToken);
                             setLoading(false);
                             navigate(from, {replace: true});
-                            toast.success("User Logged Successfully.");
+                            toast.success("User logged successfully.");
                             action.resetForm();
                         } else {
-                            console.log(data.errorMessage[0].message);
-                            return toast.error(data.errorMessage[0].message);
+                            return toast.error(
+                                data?.errorMessage?.[0]?.message ||
+                                    "Login failed"
+                            );
                         }
                     })
-                    .catch((err) => {
-                        console.log(err);
-                        return toast.error(err);
+                    .catch(() => {
+                        return toast.error("Something went wrong.");
                     });
             },
         });
 
     return (
-        <div className="bg-gray-950">
-            <div className="h-screen w-full  py-12 pt-20">
-                <div className="container ">
-                    <div className=" flex flex-col justify-center py-14">
-                        <div className="relative py-3 sm:max-w-xl sm:mx-auto mx-2">
-                            <div
-                                className="absolute inset-0 bg-gradient-to-r from-blue-400 to-pink-300 shadow-lg 
-                        transform  -rotate-6 rounded-3xl"></div>
-                            <div className="relative px-4 py-7 bg-gray-50 shadow-lg rounded-3xl sm:p-10">
-                                <div className="max-w-md mx-auto">
-                                    <div>
-                                        <h2 className="text-2xl text-gray-700 font-semibold">
-                                            Sign In on{" "}
-                                            <span>Mental Health</span>
-                                        </h2>
-                                    </div>
-                                    <form
-                                        onSubmit={handleSubmit}
-                                        className="divide-y divide-gray-200">
-                                        <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
-                                            <div className="relative">
-                                                <input
-                                                    id="email"
-                                                    name="email"
-                                                    type="email"
-                                                    className="peer placeholder-transparent h-10 w-full border-b-2 dark:rounded-md dark:bg-slate-50 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600"
-                                                    placeholder="Enter email.."
-                                                    value={values.email}
-                                                    onChange={handleChange}
-                                                    onBlur={handleBlur}
-                                                    required
-                                                />
-                                                <label
-                                                    htmlFor="email"
-                                                    className="absolute left-0 -top-3.5  text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600  peer-focus:text-sm">
-                                                    Email Address
-                                                </label>
-                                                {errors.email &&
-                                                    touched.email && (
-                                                        <p className="text-red-600 text-sm">
-                                                            {errors.email}
-                                                        </p>
-                                                    )}
-                                            </div>
-                                            <div className="relative">
-                                                <input
-                                                    id="password"
-                                                    name="password"
-                                                    type="password"
-                                                    className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300  dark:bg-slate-50 text-gray-900 focus:outline-none focus:borer-rose-600"
-                                                    placeholder="Enter password..."
-                                                    value={values.password}
-                                                    onChange={handleChange}
-                                                    onBlur={handleBlur}
-                                                    required
-                                                />
-                                                <label
-                                                    htmlFor="password"
-                                                    className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
-                                                    Password
-                                                </label>
-                                                {errors.password &&
-                                                    touched.password && (
-                                                        <p className="text-red-600 text-sm">
-                                                            {errors.password}
-                                                        </p>
-                                                    )}
-                                            </div>
-                                            <div className="relative">
-                                                <button
-                                                    type="submit"
-                                                    className="btn-primary  px-4 py-1.5 w-full">
-                                                    Login
-                                                </button>
-                                            </div>
-                                            <p className="">
-                                                If you don't have an account?
-                                                Please{" "}
-                                                <Link
-                                                    className="text-blue-600 decoration-2 hover:underline font-medium "
-                                                    to={"/registration"}>
-                                                    <span>Sing up </span>{" "}
-                                                </Link>
-                                                now
-                                            </p>
-                                            <div>
-                                                <p>
-                                                    Demo account :
-                                                    ripassorkerrifat@gmail.com
-                                                </p>
-                                                <p> Password : asdasd</p>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+        <div className="container flex min-h-screen items-center py-10 md:py-12">
+            <div className="grid w-full gap-6 lg:grid-cols-2">
+                <section className="section-block p-6 md:p-8">
+                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">
+                        Welcome Back
+                    </p>
+                    <h1 className="mt-3 text-3xl font-extrabold text-white md:text-5xl">
+                        Sign in and continue your <span>wellness journey</span>
+                    </h1>
+                    <p className="desc mt-4 max-w-xl">
+                        Access your journal history, mood analytics, and guided
+                        sessions from one place.
+                    </p>
+                    <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-4">
+                        <p className="text-sm font-semibold text-white">Demo account</p>
+                        <div className="mt-2 space-y-2 text-sm text-slate-300">
+                            <div className="flex items-center justify-between gap-3 rounded-lg bg-white/5 px-3 py-2">
+                                <p>
+                                    Email: <b className="text-slate-100">mentalhealth@gmail.com</b>
+                                </p>
+                                <button
+                                    type="button"
+                                    onClick={() =>
+                                        handleCopy("mentalhealth@gmail.com", "Email")
+                                    }
+                                    className="rounded-md bg-sky-400/20 px-2.5 py-1 text-xs font-semibold text-sky-100 hover:bg-sky-400/30">
+                                    Copy
+                                </button>
+                            </div>
+                            <div className="flex items-center justify-between gap-3 rounded-lg bg-white/5 px-3 py-2">
+                                <p>
+                                    Password: <b className="text-slate-100">mentalhealth</b>
+                                </p>
+                                <button
+                                    type="button"
+                                    onClick={() =>
+                                        handleCopy("mentalhealth", "Password")
+                                    }
+                                    className="rounded-md bg-sky-400/20 px-2.5 py-1 text-xs font-semibold text-sky-100 hover:bg-sky-400/30">
+                                    Copy
+                                </button>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
+
+                <section className="glass-card p-6 md:p-8">
+                    <h2 className="text-2xl font-bold text-white">Sign In</h2>
+                    <p className="mt-1 text-sm text-slate-300">
+                        Use your account details to continue.
+                    </p>
+
+                    <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+                        <div>
+                            <label htmlFor="email" className="mb-1 block text-sm text-slate-200">
+                                Email Address
+                            </label>
+                            <input
+                                id="email"
+                                name="email"
+                                type="email"
+                                placeholder="you@example.com"
+                                className="w-full rounded-xl px-4 py-2.5"
+                                value={values.email}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                required
+                            />
+                            {errors.email && touched.email && (
+                                <p className="mt-1 text-sm text-rose-300">{errors.email}</p>
+                            )}
+                        </div>
+
+                        <div>
+                            <label
+                                htmlFor="password"
+                                className="mb-1 block text-sm text-slate-200">
+                                Password
+                            </label>
+                            <input
+                                id="password"
+                                name="password"
+                                type="password"
+                                placeholder="Enter password"
+                                className="w-full rounded-xl px-4 py-2.5"
+                                value={values.password}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                required
+                            />
+                            {errors.password && touched.password && (
+                                <p className="mt-1 text-sm text-rose-300">{errors.password}</p>
+                            )}
+                        </div>
+
+                        <button type="submit" className="btn-primary w-full">
+                            Login
+                        </button>
+
+                        <p className="text-sm text-slate-300">
+                            New here?{" "}
+                            <Link to="/registration" className="font-semibold text-sky-200 hover:text-white">
+                                Create an account
+                            </Link>
+                        </p>
+                    </form>
+                </section>
             </div>
         </div>
     );

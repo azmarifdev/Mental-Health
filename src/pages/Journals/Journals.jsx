@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import {useUserContext} from "../../context/AuthProvider";
 import {config} from "../../utils/envCongif";
 import TimeAgo from "timeago-react";
 import {formattedDate} from "../../utils/formateDateTime";
@@ -34,70 +33,65 @@ const Journals = () => {
     }
 
     return (
-        <div className="container min-h-[70vh]">
-            <div className="grid lg:grid-cols-4  md:grid-cols-3  grid-cols-1 gap-10 py-20 text-gray-200">
+        <div className="container min-h-[70vh] py-10 md:py-14">
+            <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+                <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">
+                        Journal Archive
+                    </p>
+                    <h1 className="mt-2 text-3xl font-bold text-white md:text-5xl">
+                        Community Journals
+                    </h1>
+                    <p className="mt-2 text-sm text-slate-300 md:text-base">
+                        Read reflections, thoughts, and emotional insights shared by users.
+                    </p>
+                </div>
+                <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200">
+                    Total: <b>{journals?.length || 0}</b>
+                </div>
+            </div>
+
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
                 {journals?.length ? (
-                    <>
-                        <>
-                            {journals?.map((jn, i) => (
-                                <motion.div
-                                    whileInView={{opacity: [0, 1], y: [0, -20]}}
-                                    transition={{duration: 0.7, delay: 0.4}}
-                                    initial={{opacity: 0}}
-                                    key={i}
-                                    className="flex flex-col  bg-primary border border-gray-700 shadow-sm rounded-lg md:p-0 p-5">
-                                    <div className="p-4 md:p-5">
-                                        <p className="text-xs text-right">
-                                            <TimeAgo
-                                                datetime={formattedDate(
-                                                    jn?.createdAt
-                                                )}
-                                            />
-                                        </p>
-                                        <h3 className="text-lg font-bold text-gray-200">
-                                            {jn.title}
-                                        </h3>
+                    journals?.map((jn, i) => (
+                        <motion.article
+                            whileInView={{opacity: [0, 1], y: [16, 0]}}
+                            transition={{duration: 0.45, delay: i * 0.03}}
+                            initial={{opacity: 0}}
+                            key={i}
+                            className="glass-card flex flex-col p-5">
+                            <p className="text-xs text-slate-300">
+                                <TimeAgo datetime={formattedDate(jn?.createdAt)} />
+                            </p>
 
-                                        {jn.desc.length > 80
-                                            ? jn?.desc
-                                                  ?.slice(0, 95)
-                                                  ?.split("\n")
-                                                  .map((line, index) => (
-                                                      <p
-                                                          className=" text-base capitalize"
-                                                          key={index}>
-                                                          {line}
-                                                      </p>
-                                                  ))
-                                            : jn?.desc
-                                                  ?.split("\n")
-                                                  .map((line, index) => (
-                                                      <p
-                                                          className=" text-base capitalize"
-                                                          key={index}>
-                                                          {line}
-                                                      </p>
-                                                  ))}
+                            <h3 className="mt-2 text-lg font-bold text-white">
+                                {jn.title}
+                            </h3>
 
-                                        <div className="mt-2  text-base font-semibold rounded-lg ">
-                                            <button
-                                                onClick={() => {
-                                                    setShowModal(true);
-                                                    setCurrentJournal(jn);
-                                                }}
-                                                type="submit"
-                                                className="inline-flex items-center gap-x-1">
-                                                <span> Read more</span>
-                                                <IoIosArrowForward size={16} />
-                                            </button>
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </>
-                    </>
+                            <div className="mt-2 space-y-1 text-sm leading-relaxed text-slate-300">
+                                {(jn.desc.length > 120
+                                    ? `${jn?.desc?.slice(0, 120)}...`
+                                    : jn?.desc
+                                )
+                                    ?.split("\n")
+                                    .map((line, index) => (
+                                        <p key={index}>{line}</p>
+                                    ))}
+                            </div>
+
+                            <button
+                                onClick={() => {
+                                    setShowModal(true);
+                                    setCurrentJournal(jn);
+                                }}
+                                type="button"
+                                className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-sky-200 hover:text-white">
+                                Read full journal <IoIosArrowForward size={15} />
+                            </button>
+                        </motion.article>
+                    ))
                 ) : (
-                    <div className="h-[50vh] flex justify-center items-center text-center lg:col-span-4 md:col-span-3 text-3xl">
+                    <div className="glass-card col-span-full flex min-h-[260px] items-center justify-center text-center text-2xl text-slate-200">
                         No journal available.
                     </div>
                 )}

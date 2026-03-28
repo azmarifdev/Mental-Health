@@ -48,9 +48,9 @@ const Navbar = () => {
     };
 
     return (
-        <header className="sticky top-0 z-[99999999] border-b border-white/10 bg-slate-950/55 backdrop-blur-xl">
-            <nav className="container py-4">
-                <div className="flex items-center justify-between gap-4">
+        <header className="fixed left-0 right-0 top-0 z-[99999999] px-3 pt-3 md:px-5">
+            <nav className="container rounded-2xl bg-slate-950/70 p-0 shadow-[0_16px_40px_rgba(4,10,24,0.45)] backdrop-blur-2xl">
+                <div className="flex min-h-[62px] items-center justify-between gap-4">
                     <Link to="/" className="flex items-center gap-3">
                         <div className="grid h-11 w-11 place-content-center rounded-2xl bg-gradient-to-br from-sky-400 to-blue-600 text-xl font-extrabold text-white shadow-xl shadow-sky-700/40">
                             M
@@ -65,7 +65,7 @@ const Navbar = () => {
                         </div>
                     </Link>
 
-                    <ul className="hidden items-center gap-2 lg:flex">
+                    <ul className="hidden items-center gap-1.5 lg:flex">
                         {navItems.map((item) => (
                             <li key={item.to}>
                                 <NavLink className={navClass} to={item.to}>
@@ -73,8 +73,8 @@ const Navbar = () => {
                                 </NavLink>
                             </li>
                         ))}
-                        <li>
-                            <button onClick={handleLogout} className="btn-primary">
+                        <li className="py-1">
+                            <button onClick={handleLogout} className="btn-primary px-5">
                                 Logout
                             </button>
                         </li>
@@ -82,7 +82,7 @@ const Navbar = () => {
 
                     <button
                         type="button"
-                        className="rounded-xl border border-white/20 bg-white/10 p-2 text-2xl text-white lg:hidden"
+                        className="rounded-xl bg-white/10 p-2 text-2xl text-white lg:hidden"
                         onClick={() => setOpen(!open)}>
                         {open ? <MdOutlineCancel /> : <HiBars3 />}
                     </button>
@@ -90,9 +90,9 @@ const Navbar = () => {
 
                 <div
                     className={`overflow-hidden transition-all duration-300 lg:hidden ${
-                        open ? "max-h-[480px] pt-5" : "max-h-0"
+                        open ? "max-h-[480px] pt-3" : "max-h-0"
                     }`}>
-                    <div className="glass-card p-4">
+                    <div className="rounded-2xl bg-slate-900/85 p-4 backdrop-blur-xl">
                         <ul className="space-y-2">
                             {navItems.map((item) => (
                                 <li key={item.to}>
@@ -107,7 +107,7 @@ const Navbar = () => {
                         </ul>
                         <button
                             onClick={handleLogout}
-                            className="btn-primary mt-4 w-full">
+                            className="btn-primary mb-1 mt-5 w-full">
                             Logout
                         </button>
                     </div>

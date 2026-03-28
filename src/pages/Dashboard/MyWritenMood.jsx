@@ -38,7 +38,7 @@ const MyWritenMood = () => {
     }
 
     return (
-        <div>
+        <div className="py-2">
             {showModal && (
                 <WritenModal
                     setShowModal={setShowModal}
@@ -55,66 +55,64 @@ const MyWritenMood = () => {
                     setRefetch={setRefetch}
                 />
             )}
-            <div className="grid md:grid-cols-3 gap-10 text-gray-200 mt-5">
+            <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+                <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.24em] text-sky-200">
+                        Mood Reflection
+                    </p>
+                    <h1 className="mt-2 text-2xl font-bold text-white md:text-4xl">
+                        My Written Moods
+                    </h1>
+                    <p className="mt-2 text-sm text-slate-300">
+                        Review your submitted mood reflections and details.
+                    </p>
+                </div>
+                <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200">
+                    Total: <b>{data?.length || 0}</b>
+                </div>
+            </div>
+
+            <div className="grid gap-6 text-gray-200 md:grid-cols-2 lg:grid-cols-3">
                 {data?.length ? (
-                    <>
-                        {data?.map((dt, i) => (
-                            <motion.div
-                                whileInView={{opacity: [0, 1], y: [0, -20]}}
-                                transition={{duration: 0.7}}
-                                initial={{opacity: 0}}
-                                key={i}
-                                className="">
-                                <div
-                                    className="flex justify-center flex-col items-center relative bg-primary rounded-md
-                            p-8">
-                                    <h2 className="text-xl ">
-                                        {" "}
-                                        You are felling {dt.mood}
-                                    </h2>
-                                    <p className="absolute text-sm top-0 left-0 p-2">
-                                        <TimeAgo
-                                            datetime={formattedDate(
-                                                dt?.createdAt
-                                            )}
-                                        />{" "}
-                                    </p>
-                                    <button
-                                        onClick={() => {
-                                            setCurrentData(dt);
-                                            setShowModal(true);
-                                        }}
-                                        className="text-lg font-semibold hover:underline ">
-                                        <span>See details</span>
-                                    </button>
-                                    <button
-                                        onClick={() => {
-                                            setShowDeleteModal(true);
-                                            setCurrentData(dt);
-                                        }}
-                                        className="absolute bottom-0 right-0 p-2">
-                                        {" "}
-                                        <IoMdTrash
-                                            size={22}
-                                            className="text-pink-500"
-                                        />
-                                    </button>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </>
+                    data?.map((dt, i) => (
+                        <motion.article
+                            whileInView={{opacity: [0, 1], y: [0, -12]}}
+                            transition={{duration: 0.45, delay: i * 0.05}}
+                            initial={{opacity: 0}}
+                            key={i}
+                            className="glass-card relative flex flex-col p-5">
+                            <p className="text-xs text-slate-300">
+                                <TimeAgo datetime={formattedDate(dt?.createdAt)} />
+                            </p>
+                            <h2 className="mt-3 text-lg font-bold text-white capitalize">
+                                You were feeling {dt.mood}
+                            </h2>
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    setCurrentData(dt);
+                                    setShowModal(true);
+                                }}
+                                className="mt-3 inline-flex w-fit text-sm font-semibold text-sky-200 hover:text-white">
+                                See details
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    setShowDeleteModal(true);
+                                    setCurrentData(dt);
+                                }}
+                                className="absolute bottom-3 right-3 rounded-lg border border-rose-300/20 bg-rose-400/10 p-2 text-rose-300 hover:bg-rose-400/20">
+                                <IoMdTrash size={18} />
+                            </button>
+                        </motion.article>
+                    ))
                 ) : (
-                    <>
-                        <>
-                            <div className="h-[50vh] flex flex-col justify-center items-center text-center lg:col-span-4 md:col-span-3 text-3xl">
-                                <p>
-                                    {" "}
-                                    No moods available.You dont submitted
-                                    anything.
-                                </p>
-                            </div>
-                        </>
-                    </>
+                    <div className="glass-card col-span-full flex min-h-[260px] flex-col items-center justify-center text-center">
+                        <p className="text-2xl text-slate-200">
+                            No moods submitted yet.
+                        </p>
+                    </div>
                 )}
             </div>
         </div>
